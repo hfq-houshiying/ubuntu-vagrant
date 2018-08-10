@@ -1,2 +1,5 @@
 #exclude vagrant metadata
 .vagrant/
+
+#exclude .env file
+.env
