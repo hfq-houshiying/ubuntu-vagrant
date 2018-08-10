@@ -1,0 +1,10 @@
+{
+    "name": "ubuntu/trusty64",
+    "versions": [{
+        "version": "20180806.0.0",
+        "providers": [{
+            "name": "virtualbox",
+            "url": "file:///mnt/d/localrepo/homestead-6.1.0.box"
+        }]
+    }]
+}
