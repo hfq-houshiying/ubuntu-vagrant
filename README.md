@@ -6,6 +6,12 @@ vagrant 安装插件
 vagrant plugin install vagrant-hostmanager vagrant-env --plugin-clean-sources --plugin-source https://gems.ruby-china.org/
 ```
 
+ubuntu 16.04 box 下载地址
+
+```
+wget http://cloud-images.ubuntu.com/xenial/20180808/xenial-server-cloudimg-amd64-vagrant.box
+```
+
 vagrant 添加本地文件
 
 ```
