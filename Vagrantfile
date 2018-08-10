@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 
     apt-get update
   
-    apt-get install pv git tmux htop iotop fabric gettext subversion expect realpath build-essential apache2-utils mysql-client-core-5.6 mysql-client-5.6 build-essential libpango1.0-0 libcairo2 libssl-dev libffi-dev libevent-dev libjpeg-dev libmemcached-dev libmysqlclient-dev libpng12-dev libpq-dev libxml2-dev libxslt1-dev libfreetype6-dev libssl-dev libffi-dev zlib1g-dev unixodbc-dev python-dev python-pip python-git python-imaging python-redis python-virtualenv
+    apt-get install -y pv git tmux htop iotop fabric gettext subversion expect realpath build-essential apache2-utils mysql-client-core-5.6 mysql-client-5.6 build-essential libpango1.0-0 libcairo2 libssl-dev libffi-dev libevent-dev libjpeg-dev libmemcached-dev libmysqlclient-dev libpng12-dev libpq-dev libxml2-dev libxslt1-dev libfreetype6-dev libssl-dev libffi-dev zlib1g-dev unixodbc-dev python-dev python-pip python-git python-imaging python-redis python-virtualenv
 
     pip install uwsgi supervisor newrelic
   SHELL
