@@ -19,18 +19,28 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.provision "shell", inline: <<-SHELL
+    #insert ssh public key to vagrant user.
     if ! [ -f /opt/reg_ssh_pub ];then  
       echo "#{ENV['SSH_PUB']}" >>  /home/vagrant/.ssh/authorized_keys
       echo "done." >  /opt/reg_ssh_pub
     fi
 
+    #replace apt sources to aliyun
     sed -i 's@archive.ubuntu.com@mirrors.aliyun.com@g' /etc/apt/sources.list
 
+    #upgrade apt
     apt-get update
-  
+    
+    #install required soft
     apt-get install -y pv git tmux htop iotop fabric gettext subversion expect realpath build-essential apache2-utils mysql-client-core-5.6 mysql-client-5.6 build-essential libpango1.0-0 libcairo2 libssl-dev libffi-dev libevent-dev libjpeg-dev libmemcached-dev libmysqlclient-dev libpng12-dev libpq-dev libxml2-dev libxslt1-dev libfreetype6-dev libssl-dev libffi-dev zlib1g-dev unixodbc-dev python-dev python-pip python-git python-imaging python-redis python-virtualenv
 
     pip install uwsgi supervisor newrelic
+
+    #update kernel to 4.4
+    sudo apt-get install linux-generic-lts-xenial
+    
+    #reboot system
+    reboot
   SHELL
 
 
