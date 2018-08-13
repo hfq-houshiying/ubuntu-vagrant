@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
     pip install uwsgi supervisor newrelic
 
     #update kernel to 4.4
-    sudo apt-get install linux-generic-lts-xenial
+    sudo apt-get install -y linux-generic-lts-xenial
     
     #reboot system
     reboot
