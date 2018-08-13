@@ -57,9 +57,28 @@ Vagrant.configure("2") do |config|
     pip install ansible
 
     #install docker
-    curl -sSL get.docker.com | bash
-    sudo usermod -aG docker `whoami` 
+    apt-get remove docker docker-engine docker.io
+    
+    apt-get update   
+    
+    apt-get install -y \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual
+   
+    curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | apt-key add -
+   
+    add-apt-repository \
+    "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu/ \
+    $(lsb_release -cs) \
+    stable"
+    
+    apt-get update
 
+    apt-get install -y docker-ce
+
+    usermod -aG docker vagrant
+    
+    update-rc.d docker defaults
     #install required soft for pip
     pip install uwsgi supervisor newrelic
 
